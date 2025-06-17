@@ -8,9 +8,9 @@ abun <- read.csv('fig4bd.csv')
 
 # taxonomic order and treatment group order
 abun$label <- factor(abun$label, levels = c(
-  'Actinobacteriota', 'Corynebacterium',
-  'Firmicutes', 'Staphylococcus', 'Streptococcus',
-  'Proteobacteria',
+  'Actinomycetota', 'Corynebacterium',
+  'Bacillota', 'Staphylococcus', 'Streptococcus',
+  'Pseudomonadota',
   'Bacteroidota', 'Bacteroides', 'Alistipes',
   'Verrucomicrobiota', 'Akkermansia',
   'Bacteria (Other)'
@@ -19,11 +19,11 @@ abun$treatment_group <- factor(abun$treatment_group, levels = c('ft/ft', 'veh', 
 
 # custom color palette
 custom_palette <- c(
-  "Firmicutes" = "#c6dbef",
+  "Bacillota" = "#c6dbef",
   "Staphylococcus" = "#5c82b2",
   "Streptococcus" = "#008ECC",
-  "Proteobacteria" = "#FF99CC",
-  "Actinobacteriota" = "#fee6ce",
+  "Pseudomonadota" = "#FF99CC",
+  "Actinomycetota" = "#fee6ce",
   "Corynebacterium" = "#e6550d",
   "Bacteroidota" = "#c7e9c0",
   "Bacteroides" = "#31a354",
@@ -45,9 +45,9 @@ plot1 <- ggplot(d0, aes(x = mouseID, y = rel_abun, fill = label)) +
   facet_grid(timepoint ~ index, scales = "free", space = 'free') +
   theme(
     panel.spacing = unit(0, "lines"), 
-    text = element_text(size = 12),
-    axis.text = element_text(size = 12),
-    axis.title.x = element_text(size = 12),
+    text = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    axis.title.x = element_text(size = 14),
     axis.title.y = element_text(size = 18),
     legend.text = element_text(size = 14),
     legend.title = element_blank(),
@@ -71,9 +71,9 @@ plot2 <- ggplot(d7, aes(x = mouseID, y = rel_abun, fill = label)) +
   facet_grid(timepoint ~ treatment_group, scales = "free", space = 'free') +
   theme(
     panel.spacing = unit(0, "lines"), 
-    text = element_text(size = 12),
-    axis.text = element_text(size = 12),
-    axis.title.x = element_text(size = 12),
+    text = element_text(size = 14),
+    axis.text = element_text(size = 14),
+    axis.title.x = element_text(size = 14),
     axis.title.y = element_text(size = 18),
     legend.text = element_text(size = 14),
     legend.title = element_blank(),

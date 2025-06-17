@@ -31,6 +31,11 @@ df_otu['label'] = np.where(df_otu['genus'].isin([
 'Alistipes',
 'Akkermansia']), df_otu['genus'], df_otu['label'])
 
+update={"Actinobacteriota":"Actinomycetota",
+       "Firmicutes":"Bacillota",
+       "Proteobacteria":"Pseudomonadota"}
+df_otu["label"] = df_otu["label"].replace(update)   
+
 # relative abundance
 df_otu['rel_abun'] =df_otu['new_est_reads']/ df_otu.groupby(['mouseID', 'timepoint'])['new_est_reads'].transform('sum')* 100
 df = df_otu.groupby(['mouseID', 'timepoint', 'label'], as_index=False)['rel_abun'].sum()
